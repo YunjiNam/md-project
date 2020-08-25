@@ -12,20 +12,22 @@ const levelCheck = {
     'N': '평균 수준'
 };
 
-const ServiceList = ({ lists, getList }) => {
+const ServiceList = ({ lists }) => {
     
-    const [list, setList] = useState([]);
+    //const [list, setList] = useState([]);
 
-    useEffect(() => {
-        fetch(`${config.DATA_URL}/?page=1&size=10`)
-            .then((res) => res.json())
-            .then((res)=>setList(res.data));
-    },[])
+    // useEffect(() => {
+    //     fetch(`${config.DATA_URL}/?page=1&size=10`)
+    //         .then((res) => res.json())
+    //         .then((res)=>setList(res.data));
+    // },[])
+
+    console.log(lists)
 
     return (
         <div className={cx('serviceList')}>
-            {list &&
-                list.map((list) => (
+            {lists &&
+                lists.map((list) => (
                     <div className={cx('serviceListWrap')} key={list.id}>
                         <section className={cx('infoWrap')}>
                             <div className={cx('imgWrap')}>
