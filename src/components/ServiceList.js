@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './ServiceList.scss';
 import classNames from 'classnames/bind';
 import * as config from '../config';
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const cx = classNames.bind(styles);
 
@@ -12,20 +13,25 @@ const levelCheck = {
     'N': '평균 수준'
 };
 
-const ServiceList = ({ lists }) => {
-    
-    //const [list, setList] = useState([]);
+const ServiceList = ({ lists, pageHandler }) => {
 
-    // useEffect(() => {
-    //     fetch(`${config.DATA_URL}/?page=1&size=10`)
-    //         .then((res) => res.json())
-    //         .then((res)=>setList(res.data));
-    // },[])
-
-    console.log(lists)
+    const buttonHandler = (dir) => {
+        if (lists[0].has_previous && dir === 'back') {
+            pageHandler('back');
+        }
+        if (lists[9].has_next && dir === 'next') {
+            pageHandler('next');
+        }
+    }
 
     return (
         <div className={cx('serviceList')}>
+            <div className={cx('leftBtn')} onClick={() => buttonHandler('back')}>
+                <FaAngleLeft />
+            </div>
+            <div className={cx('rightBtn')} onClick={() => buttonHandler('next')}>
+                <FaAngleRight />
+            </div>
             {lists &&
                 lists.map((list) => (
                     <div className={cx('serviceListWrap')} key={list.id}>
@@ -50,7 +56,7 @@ const ServiceList = ({ lists }) => {
                                 <div className={cx('review')}>{list.company}</div>
                                 <div className={cx('description')}>{list.title}</div>
                                 <div className={cx('moreBtnWrap')}>
-                                    <p>자세히 보기</p>
+                                    <p>자세히 보기</p><FaAngleRight />
                                 </div>
                             </div>
                         </section>

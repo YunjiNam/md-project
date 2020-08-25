@@ -1,5 +1,6 @@
-.serviceList {
+@import "../styles/mixin";
 
+.serviceList {
     width: 100%;
     margin: 50px 0;
 
@@ -8,10 +9,71 @@
     align-items: center;
     flex-direction: column;
 
+    .leftBtn {
+        position: fixed;
+        top: 50%;
+
+        @include desktop {
+            left: 15%;
+        }
+
+        @include tablet {
+            left: 15%;
+        }
+
+        @include mobile {
+            left: 10px;
+        }
+
+        background-color: #94979c85;
+        border-radius: 10px;
+
+        padding: 20px 15px 18px 15px;
+
+        cursor: pointer;
+    }
+
+    .rightBtn {
+        position: fixed;
+        top: 50%;
+
+        @include desktop {
+            right: 15%;
+        }
+
+        @include tablet {
+            right: 15%;
+        }
+
+        @include mobile {
+            right: 10px;
+        }
+
+        background-color: #94979c85;
+        border-radius: 10px;
+
+        padding: 20px 15px 18px 15px;
+
+        cursor: pointer;
+    }
+
     .serviceListWrap {
 
-        width: 60%;
-        padding: 20px;
+        @include desktop {
+            width: 50%;
+            padding: 20px;
+        }
+
+        @include tablet {
+            width: 50%;
+            padding: 20px;
+        }
+
+        @include mobile {
+            width: 95%;
+            padding: 20px 10px;
+        }
+
         border-bottom: 1px solid #cfd7e6;
 
         display: flex;
@@ -26,16 +88,39 @@
         }
 
         .infoWrap {
-
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding-left: 30px;
+
+            @include desktop {
+                padding-left: 30px;
+            }
+
+            @include tablet {
+                padding-left: 30px;
+            }
+
+            @include mobile {
+                padding-left: 20px;
+            }
 
             .imgWrap {
                 .imgBox {
-                    width: 80px;
-                    height: 80px;
+
+                    @include desktop {
+                        width: 80px;
+                        height: 80px;
+                    }
+
+                    @include tablet {
+                        width: 80px;
+                        height: 80px;
+                    }
+
+                    @include mobile {
+                        width: 50px;
+                        height: 50px;
+                    }
 
                     background-color: #cfd7e6;
                     border-radius: 50px;
@@ -48,7 +133,17 @@
 
             .textWrap {
 
-                padding-left: 20px;
+                @include desktop {
+                    padding-left: 20px;
+                }
+
+                @include tablet {
+                    padding-left: 20px;
+                }
+
+                @include mobile {
+                    padding-left: 15px;
+                }
 
                 .levelTitle {
                     font-size: 16px;
@@ -69,14 +164,13 @@
                         font-size: 12px;
                         font-weight: 600;
                         text-align: center;
-                        color: #FFF;
+                        color: #fff;
 
                         background-color: #e93535;
 
                         padding: 1px 5px;
                         margin-left: 5px;
                     }
-
                 }
 
                 .review {
@@ -88,13 +182,17 @@
                     color: #979ca7;
 
                     padding: 5px 10px 10px 0;
-
                 }
 
                 .description {
                     font-size: 15px;
                     font-weight: 500;
+                    line-height: 20px;
                     color: #202020;
+
+                    @include mobile {
+                        padding-right: 10px;
+                    }
 
                     padding-bottom: 20px;
                 }
@@ -103,9 +201,13 @@
                     font-size: 15px;
                     font-weight: 700;
                     color: #979ca7;
+
+                    display: flex;
+                    justify-content: flex-start;
+
+                    cursor: pointer;
                 }
             }
         }
-
     }
 }
