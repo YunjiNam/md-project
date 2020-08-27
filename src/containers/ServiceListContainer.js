@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import ServiceList from '../components/ServiceList';
+import ServiceList from '../components/ServiceList/ServiceList';
 import { getList } from '../modules/lists';
 
 

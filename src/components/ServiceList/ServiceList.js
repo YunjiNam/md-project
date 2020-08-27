@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ServiceList.scss';
 import classNames from 'classnames/bind';
-import * as config from '../config';
+import * as config from '../../config';
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const cx = classNames.bind(styles);
